@@ -12,7 +12,7 @@ test.describe('Salesforce Tests', () => {
   });
 
   // ----------------------------------------
-  // Test 1 - test.only() -> test.only() runs only once
+  // Test 1 - test.only() -> test.only() runs only once so changed it as test to check for other annotations 
   // ----------------------------------------
 
   test('Verify Salesforce homepage using saved session',async ({ page }) => {
@@ -31,19 +31,11 @@ test.describe('Salesforce Tests', () => {
   // Test 2 - test.slow()
   // ----------------------------------------
 
-  test(
-    'Salesforce slow test',
-    async ({ page }) => {
-
+  test('Salesforce slow test',async ({ page }) => {
       test.slow();
 
-      await page.goto(
-        'https://login.salesforce.com/'
-      );
-
-      console.log(
-        'Salesforce page opened'
-      );
+      await page.goto('https://login.salesforce.com/');
+      console.log('Salesforce page opened');
 
     }
   );
@@ -64,11 +56,11 @@ test.describe('Salesforce Tests', () => {
       );
 
       await page.locator('#username').fill(
-        'invalid_user'
+        'testuser'
       );
 
       await page.locator('#password').fill(
-        'invalid_password'
+        'testpassword'
       );
 
       await page.locator('#Login').click();
